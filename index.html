@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="icons/dooglas_icon.png" />
+    <title>Douglas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+  <body>
+    <div class="animation-container" id="animation">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+      <div class="logo-animation">
+        <img src="img/dooglas_logo.png" alt="dooglas_logo" />
+      </div>
+    </div>
+    <header class="header" id="header">
+      <div class="container">
+        <div class="logo">
+          <a href="#"><img class="logo" src="img/dooglas_logo.png" alt="dooglas_logo" /></a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#Новинки">Новинки</a></li>
+            <li><a href="#makeup">Макияж</a></li>
+            <li><a href="#shop">Магазин</a></li>
+            <li><a href="#shop-perfume">Парфюмерия</a></li>
+            <li><a href="#brands-section">Бренды</a></li>
+          </ul>
+        </nav>
+        <div class="icons">
+          <span class="icon search-icon" onclick="openSearch()"
+            ><img
+              src="icons/icons8-search-50.png"
+              alt="magnifying-glass"
+              style="width: 40px"
+          /></span>
+          <span class="icon user-icon" onclick="toggleUserMenu()"
+            ><img
+              src="icons/icons8-user-icon-48.png"
+              alt="user-icon"
+              style="width: 40px"
+          /></span>
+          <span class="icon cart-icon" onclick="toggleCart()"
+          <button id="cart-btn"> 
+            <img
+              src="icons/icons8-paper-bag-64.png"
+              alt="bag"
+              style="width: 40px"
+          />         <span id="cart-count" class="cart-count">0</span> <!-- Число товаров в корзине -->
+      </button>
+        </span>
+
+        </div>
+
+        <!-- Модальное окно для поиска -->
+        <div id="searchModal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeSearch()">&times;</span>
+            <h2>Поиск</h2>
+            <input
+              type="text"
+              placeholder="Введите запрос..."
+              style="max-width: 90%"
+            />
+          </div>
+        </div>
+
+        <!-- Меню пользователя -->
+        <div id="userMenu" class="menu">
+          <h3>Меню пользователя</h3>
+          <ul>
+            <li>Профиль</li>
+            <li>Настройки</li>
+            <li>Выйти</li>
+          </ul>
+        </div>
+
+        <!-- Корзина -->
+        <div id="cart" class="cart">
+          <h3>Корзина</h3>
+          <p>Ваши товары:</p>
+            <ul id="cart-items"></ul>
+            <button id="checkout-btn" style="display: none;">Оформить заказ</button>
+        </div>
+      </div>
+    </header>
+
+    <div id="promo" class="promo">
+      <div class="promo-content">
+        <h1>Добро пожаловать в будущее</h1>
+        <a href="#" class="promo-btn">Сделать заказ немедленно</a>
+      </div>
+    </div>
+
+    <div id="order-form" class="order-form">
+  <div class="order-form-container">
+    <h2>Форма заказа</h2>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" placeholder="Введите ваше имя">
+    
+    <label for="email">Электронная почта:</label>
+    <input type="email" id="email" name="email" placeholder="Введите вашу почту">
+    
+    <label for="product">Продукт:</label>
+    <select id="product" name="product">
+      <option value="product1">Тональный крем Luxe</option>
+      <option value="product2">Матовая помада Velvet</option>
+      <option value="product3">Компактная пудра Pro</option>
+      <option value="product4">Палетка теней Smoky</option>
+      <option value="product5">Объемная тушь XXL</option>
+      <option value="product6">Хайлайтер Glow</option>
+      <option value="product1">Dior Sauvage</option>
+      <option value="product2">Chanel No.5</option>
+      <option value="product3">Creed Aventus</option>
+      <option value="product4">YSL Black Opium</option>
+      <option value="product5">Tom Ford Ombré Leather</option>
+      <option value="product6">Armani Acqua Di Gio</option>
+    </select>
+    
+    <button type="submit" class="submit-btn">Оформить заказ</button>
+    <button id="close-form" class="close-form-btn">Закрыть</button>
+  </div>
+</div>
+
+    <div id="top-lipsticks" class="top-lipsticks">
+      <h2 id="Новинки">Топ-5 лучших новых помад 2025 года в Douglas</h2>
+      <div class="lipstick-list">
+        <div class="lipstick-item">
+          <img src="img/Pupa Volume.webp" alt="Название Помады 1" />
+          <h3>Pupa Volume</h3>
+          <p>
+            Итальянская помада с эффектом визуального увеличения объема губ.
+            Обладает кремовой текстурой, обеспечивающей ровное матовое покрытие
+            и увлажнение. Стойкость составляет до 5-6 часов. Цена около 20 €.
+          </p>
+        </div>
+        <div class="lipstick-item">
+          <img
+            src="img/L'Oreal Paris Color Riche Matte Addiction.png "
+            alt="Название Помады 2"
+            style="height: 162px"
+          />
+          <h3>L'Oreal Paris Color Riche Matte Addiction</h3>
+          <p>
+            Французская увлажняющая матовая помада с маслами жожоба и камелии.
+            Обеспечивает стойкое покрытие до 8 часов и интенсивное увлажнение.
+            Цена около 6 €.
+          </p>
+        </div>
+        <div class="lipstick-item">
+          <img
+            src="img/Essence Velvet Stick.png"
+            alt="Название Помады 3"
+            style="height: 162px"
+          />
+          <h3>Essence Velvet Stick</h3>
+          <p>
+            Немецкая матовая помада-карандаш, сочетающая свойства бальзама и
+            помады. Содержит витамины A и E, касторовое масло, обеспечивает
+            стойкость до 4-5 часов. Цена около 3 €.
+          </p>
+        </div>
+        <div class="lipstick-item">
+          <img
+            src="img/Maybelline_Super_Stay_Matte_Ink-removebg-preview.png"
+            alt="Название Помады 4"
+            style="width: 162px"
+            style="height: 162px"
+          />
+          <h3>Maybelline Super Stay Matte Ink</h3>
+          <p>
+            Американская жидкая помада с матовым финишем, обеспечивающая
+            стойкость до 16 часов. Удобный аппликатор позволяет точно наносить
+            средство. Цена около 11 €.
+          </p>
+        </div>
+        <div class="lipstick-item">
+          <img
+            src="img/Christian Dior Rouge Diorific.png"
+            alt="Название Помады 5"
+            style="width: 162px"
+            style="height: 162px"
+          />
+          <h3>Christian Dior Rouge Diorific</h3>
+          <p>
+            Французская помада с матовым финишем, обеспечивающая стойкое
+            покрытие до 6 часов. Содержит витамин Е и масла, увлажняющие губы.
+            Цена около 40 €.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="makeup" class="makeup">
+      <h2>Макияж: Сделай свой образ неповторимым</h2>
+      <p>
+        Макияж — это не просто косметика. Это искусство, которое позволяет
+        подчеркнуть индивидуальность и выразить себя. От легкого дневного
+        макияжа до ярких вечерних образов — здесь вы найдете всё!
+      </p>
+
+      <!-- Категории макияжа -->
+      <div id="makeup" class="makeup-categories">
+        <div class="category-item">
+          <h3>Лицо</h3>
+          <p>Тональные кремы, консилеры и румяна для идеального финиша.</p>
+          <img
+            src="img/blog-new-3.webp"
+            alt="Тональный крем"
+            style="width: 250px"
+            style="height: 250px"
+          />
+        </div>
+        <div class="category-item">
+          <h3>Глаза</h3>
+          <p>Туши, карандаши для глаз и палетки теней для глубокого взгляда.</p>
+          <img
+            src="img/blog4.jpg"
+            alt="Палетка теней"
+            style="width: 250px"
+            style="height: 250px"
+          />
+        </div>
+        <div class="category-item">
+          <h3>Губы</h3>
+          <p>Помады и блески, которые подчеркивают вашу уникальность.</p>
+          <img
+            src="img/scale_1200.jpg"
+            alt="Помада"
+            style="width: 250px"
+            style="height: 250px"
+          />
+        </div>
+        <div class="category-item">
+          <img
+            src="img/primer_img_1.jpg"
+            alt="Праймер"
+            style="width: 250px"
+            style="height: 250px"
+          />
+          <h3>Праймер</h3>
+          <p>
+            Праймер для кожи — это основа, которая поможет вам достичь
+            идеального макияжа, продлевая стойкость.
+          </p>
+        </div>
+        <div class="category-item">
+          <img
+            src="img/bourjois.jpg"
+            alt="Тушь для ресниц"
+            style="width: 250px"
+            style="height: 250px"
+          />
+          <h3>Тушь для ресниц</h3>
+          <p>
+            Объемная тушь, придающая вашим ресницам невероятный объем и длину.
+          </p>
+        </div>
+        <div class="category-item">
+          <img
+            src="img/blush.jpg"
+            alt="Румяна"
+            style="width: 250px"
+            style="height: 250px"
+          />
+          <h3>Румяна</h3>
+          <p>Нежные румяна для здорового и свежего вида вашего лица.</p>
+        </div>
+      </div>
+
+      <!-- Советы по нанесению макияжа -->
+      <div class="makeup-tips">
+        <h3>Советы по нанесению макияжа</h3>
+        <p>
+          Следуйте этим простым шагам, чтобы ваш макияж всегда был идеальным!
+        </p>
+        <ul>
+          <li>Не забывайте про праймер для долгого стойкого макияжа.</li>
+          <li>
+            Для вечернего макияжа используйте насыщенные цвета теней и помад.
+          </li>
+          <li>
+            Не забывайте растушевывать румяна для более естественного вида.
+          </li>
+        </ul>
+      </div>
+
+      <div id="shop" class="shop">
+        <h2>Наш магазин</h2>
+        <p>Откройте для себя лучшие косметические продукты в нашем магазине!</p>
+
+        <div class="shop-products">
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop1/">
+              <img src="img/luxe-removebg-preview.png" alt="Тональный крем" />
+              <h3>Тональный крем Luxe</h3>
+              <p>Стойкость 24 часа, увлажнение и естественное покрытие.</p>
+              <span class="price">16.99 €</span>
+            </a>
+           <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop2/">
+              <img
+                src="img/velumekauf-removebg-preview.png"
+                alt="Помада"
+                style="width: 200px"
+              />
+              <h3>Матовая помада Velvet</h3>
+              <p>Бархатистая текстура, стойкость до 12 часов.</p>
+              <span class="price">15 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop3/">
+              <img src="img/pudra-removebg-preview.png" alt="Пудра" />
+              <h3>Компактная пудра Pro</h3>
+              <p>Легкая, фиксирует макияж и убирает блеск.</p>
+              <span class="price">18 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop4/">
+              <img src="img/smoky-removebg-preview.png" alt="Палетка теней" />
+              <h3>Палетка теней Smoky</h3>
+              <p>10 потрясающих оттенков для создания идеального образа.</p>
+              <span class="price">25 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop5/">
+              <img src="img/xxl-removebg-preview.png" alt="Тушь для ресниц" />
+              <h3>Объемная тушь XXL</h3>
+              <p>Придаёт ресницам невероятный объём и длину.</p>
+              <span class="price">12 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_shop6/">
+              <img src="img/glow.png" alt="Хайлайтер" />
+              <h3>Хайлайтер Glow</h3>
+              <p>Делает кожу сияющей и ухоженной.</p>
+              <span class="price">22 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="shop-perfume" class="shop">
+        <h2>Наш магазин парфюмов</h2>
+        <p>Откройте для себя утончённые ароматы от ведущих брендов!</p>
+
+        <div class="shop-products">
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume11/">
+              <img src="img/diorparfume.webp" alt="Dior Sauvage" />
+              <h3>Dior Sauvage</h3>
+              <p>Свежий и дерзкий аромат с нотами бергамота и амброксана.</p>
+              <span class="price">62.99 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume2/">
+              <img src="img/chanelparfume.avif" alt="Chanel No.5" />
+              <h3>Chanel No.5</h3>
+              <p>Классический цветочный аромат с альдегидами и жасмином.</p>
+              <span class="price">85 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume3/">
+              <img src="img/Creed Aventus.png" alt="Creed Aventus" />
+              <h3>Creed Aventus</h3>
+              <p>Элитный древесно-фруктовый аромат с ананасом и мускусом.</p>
+              <span class="price">255 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume4/">
+              <img
+                src="img/YSL Black Opium.webp"
+                alt="YSL Black Opium"
+                style="width: 200px"
+              />
+              <h3>YSL Black Opium</h3>
+              <p>Соблазнительный восточный аромат с нотами кофе и ванили.</p>
+              <span class="price">57.99 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume5/">
+              <img
+                src="img/Tom_Ford_Ombré_Leather-removebg-preview.png"
+                alt="Tom Ford Ombré Leather"
+                style="width: 200px"
+              />
+              <h3>Tom Ford Ombré Leather</h3>
+              <p>Дымчатый кожаный аромат с пряными нотами.</p>
+              <span class="price">149.99 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+
+          <div class="product-card">
+            <a href="https://saschalevishchenko.github.io/Douglas_portfolio_perfume6/">
+              <img
+                src="img/Armani_Acqua_Di_Gio-removebg-preview.png"
+                alt="Armani Acqua Di Gio"
+                style="width: 200px"
+              />
+              <h3>Armani Acqua Di Gio</h3>
+              <p>Свежий цитрусово-водный аромат для элегантных мужчин.</p>
+              <span class="price">56.99 €</span>
+            </a>
+                       <div class="add-to-cart" data-id="product1">
+          <span class="plus-btn">+</span>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="brands-section" class="brands-section">
+      <h4 class="brand-text">Популярные Бренды</h4>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-item">
+            <a href="https://www.dior.com/de_de" class="brand-link">
+              <img src="img/diorlogo.png" alt="Бренд 1" />
+              <div class="brand-description">
+                <p>
+                  Французский бренд класса люкс, известный своими роскошными
+                  ароматами, премиальной косметикой и ухаживающими средствами.
+                  Dior – это синоним элегантности и высокого качества.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>5/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="carousel-item">
+            <a href="https://www.chanel.com/at/" class="brand-link">
+              <img src="img/chanel-logo.svg" alt="Бренд 2" />
+              <div class="brand-description">
+                <p>
+                  Один из самых престижных брендов в мире, предлагающий
+                  эксклюзивную косметику и парфюмерию. Chanel славится своими
+                  культовыми ароматами (Chanel No.5), безупречными текстурами и
+                  стильной упаковкой.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>5/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="carousel-item">
+            <a href="https://www.loreal-paris.de" class="brand-link">
+              <img src="img/L'Oréallogo.png" alt="Бренд 3" />
+              <div class="brand-description">
+                <p>
+                  Один из крупнейших косметических брендов в мире, предлагающий
+                  широкий ассортимент декоративной косметики, средств для ухода
+                  за кожей и волосами. Известен своими инновациями, доступностью
+                  и высоким качеством.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>4.5/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="carousel-item">
+            <a
+              href="https://www.yslbeauty.de/services/ki-make-up-look-berater/?gad_source=1&gclid=CjwKCAjwp8--BhBREiwAj7og1ynR8tbX9KnZ2SVgPeGKepug5wNGJput1udbVyePODkosDjWvKY8mxoCmg8QAvD_BwE"
+              class="brand-link"
+            >
+              <img
+                src="img/Saint-Laurent-logo.png"
+                alt="Бренд 4"
+                style="width: 950px"
+              />
+              <div class="brand-description">
+                <p>
+                  Стильный и смелый бренд с яркими цветами и роскошными
+                  текстурами. Особенно популярен своими стойкими помадами,
+                  ароматами и декоративной косметикой.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>4.9/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="carousel-item">
+            <a
+              href="https://www.lancome.de/?utm_source=google&utm_medium=cpc&source_campaign=lan_goog_ao_multi_na_bran_search_text_sales_de_po:YM00337498_broad_service&gclsrc=aw.ds&gad_source=1&gclid=CjwKCAjwp8--BhBREiwAj7og13yAT2ZmOb7wu4BIk7_a0Es2k4Vpng8JPJRVlCaWzadQFtO9wtuJxxoCOwcQAvD_BwE"
+              class="brand-link"
+            >
+              <img src="img/Lancôme.png" alt="Бренд 5" style="width: 800px" />
+              <div class="brand-description">
+                <p>
+                  Бренд премиум-класса, известный своими антивозрастными
+                  средствами, изысканными ароматами и люксовой декоративной
+                  косметикой. Особое внимание уделяет уходу за кожей.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>4.8/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="carousel-item">
+            <a href="https://www.esteelauder.de/?utm_medium=cpcbrand&utm_source=google&utm_campaign=fy24_q1_de_el_always_on&utm_content=search_ad________&gclsrc=aw.ds&gad_source=1&gclid=CjwKCAjwp8--BhBREiwAj7og14lUMpsw56v8naDZASbIlzOFyTf68Q2ij6aJoJMdv6u2ebdcrkDK9hoC_icQAvD_BwE" class="brand-link">
+              <img
+                src="img/estee-lauder.svg"
+                alt="Бренд 6"
+                style="width: 950px"
+              />
+              <div class="brand-description">
+                <p>
+                  Американский бренд люксовой косметики, известный своими
+                  антивозрастными средствами, качественными тональными кремами и
+                  премиальными ароматами.
+                </p>
+                <div class="reviews">
+                  <img src="img/review-icon.png" alt="Отзывы" />
+                  <span>4.7/5</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="beauty-footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>BEAUTY<span>GLOW</span></h2>
+        </div>
+
+        <nav class="footer-menu">
+          <a href="#Новинки">Новинки</a>
+          <a href="#makeup">Макияж</a>
+          <a href="#shop">Магазин</a>
+          <a href="#shop-perfume">Парфюмерия</a>
+        </nav>
+
+        <div class="footer-socials">
+          <a href="#"
+            ><img src="icons/icons8-instagram-logo-48.png" alt="Instagram"
+          /></a>
+          <a href="#"><img src="icons/icons8-tik-tok-48.png" alt="TikTok" /></a>
+          <a href="#"
+            ><img src="icons/icons8-youtube-logo-94.png" alt="YouTube"
+          /></a>
+        </div>
+
+        <div class="footer-subscribe">
+          <input type="email" placeholder="Ваш email" />
+          <button>Подписаться</button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
